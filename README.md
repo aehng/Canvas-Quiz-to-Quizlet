@@ -1,21 +1,18 @@
 # Canvas-to-Quizlet
 
-![Canvas to Quizlet Logo](https://i.imgur.com/49t1ZZ2.png)
+Converts an HTML file of a completed Canvas quiz to a Quizlet flashcard set. 
 
-Simple script to convert an HTML file of a completed Canvas quiz to a Quizlet flashcard set. 
-
-This project was started out of need, and served as a good exercise in parsing HTML with Regex (something I'm utilizing in a larger future project.)
+This project was made because I didn't want to spend 8 minutes typing my jazz quiz into quizlet so instead I spent 2 hours writing code to do it for me
 
 ## Usage
-You should begin with a completed Canvas quiz, where correct answers are marked:
+You should begin with a completed Canvas quiz:
 
-![Canvas Quiz Example](https://i.imgur.com/JzOWMij.png)
+Hit Ctrl-S to save the html file of the quiz. Run the script, `beautiful-soup.py`, and when prompted paste the location of the quiz .html file into the Python console. Then paste the location of the desired output .txt file -- if none exists, one will be created. 
 
-Hit Ctrl-S to save the html file of the quiz. Run the script, `canvas-to-quizlet.py`, and when prompted paste the location of the quiz .html file into the Python console. Then paste the location of the desired output .txt file -- if none exists, one will be created. 
-
-Copy the entirety of the .txt file and import into Quizlet by creating a new set and selecting "+ Import from Word, Excel, Google Docs, etc." and pasting. Happy studying!
+Copy the entirety of the .txt file and import into Quizlet by creating a new set and selecting "+ Import" pasting, and changing to "Comma" and "Semicolon".
 
 ## Notes
-* Regardless of what you answered for a question, only the correct answer will be extracted
+* Will only use your answer for the quiz, EVEN IF IT IS INCORRECT
 * Questions containing an image or table will be removed since Quizlet does not allow them to be imported
-* Questions with the answer "All of the above" will be removed
+
+Original idea and base model taken from https://github.com/nhend/canvas-to-quizlet (Basically nothing is even close to the same)

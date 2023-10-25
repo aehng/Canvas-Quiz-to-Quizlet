@@ -14,7 +14,7 @@ def convert(file: str) -> dict:
     Clean and returns a dict of Q&A pairs
     '''
     questions = re.findall(r'"textarea_question_text">([\s\S]*?)<', file)
-    answers = re.findall(r'"(.*?)(?:\.*?)(?:. This was the correct answer|. You selected this answer. This was the correct answer.)', file)
+    answers = re.findall(r'<input(?![^>]*checked="")[^>]*>[\s\S]*?<div class="answer_text">(.*?)<\/div>', file)
 
     # Zip together questions and answers into a dict for easier manipulation
     raw_pairs = dict(zip(questions, answers))
@@ -37,16 +37,16 @@ def write_pairs(pairs: dict, location: str):
     '''Writes question-and-answer pairs to a text file in the Quizlet tab-separated format'''
     with open(location, 'w', encoding="utf8") as f:
         for key in pairs.keys():
-            f.write(f"{key}\t{pairs[key]}\n")
+            f.write(f"{key},{pairs[key]};")
 
 
 def main():
     '''Program driver for user input and instructions'''
     in_location = input("Please enter the address and/or name of your input html file.\n" +
-                        "Example - C:/Users/Nick/Downloads/Quiz1.html \n")
+                        "Example - /mnt/c/Users/elijk/OneDrive - USU/Saving-Storage/Random/canvas-to-quizlet/Jazz/Quiz1.html \n")
 
     out_location = input("Please enter the address and/or name of your output txt file.\n" +
-                         "Example - C:/Users/Nick/Documents/Quiz1_Quizlet.txt \n")
+                         "Example - /mnt/c/Users/elijk/OneDrive - USU/Saving-Storage/Random/canvas-to-quizlet/Jazz/Quiz1_Quizlet.txt \n")
 
     file = open(in_location, "r", encoding="utf8").read().strip()
 

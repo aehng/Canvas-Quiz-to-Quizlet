@@ -4,6 +4,11 @@ Converts an HTML file of a completed Canvas quiz to a Quizlet flashcard set.
 
 This project was made because I didn't want to spend 8 minutes typing my jazz quiz into quizlet so instead I spent 2 hours writing code to do it for me
 
+## Set Up
+Open your terminal of choice (WSL for me) and clone the repository. Ensure you have beautiful soup installed (Run `pip install beautifulsoup4` to install it). 
+Feel free to use the poetry files included (don't worry about it if you don't know what that is)
+Thats it!
+
 ## Usage
 You should begin with a completed Canvas quiz:
 
